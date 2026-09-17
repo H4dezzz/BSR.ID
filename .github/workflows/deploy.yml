@@ -28,10 +28,11 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build project with Base Path & Static Preset
-        run: bun run build --base=/BSR.ID/
+      - name: Build project
+        run: bun run build
         env:
           NITRO_PRESET: static
+          VITE_BASE_PATH: /BSR.ID/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
