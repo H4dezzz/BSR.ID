@@ -30,14 +30,12 @@ jobs:
 
       - name: Build project
         run: bun run build
-        env:
-          NITRO_PRESET: static
-          VITE_BASE_PATH: /BSR.ID/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          # TanStack/Nitro biasanya menyimpan static output di folder ini
+          path: './.output/public'
 
   deploy:
     environment:
